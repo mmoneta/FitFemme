@@ -1,4 +1,4 @@
-#Project E-commerce
+# Project E-commerce
 
 Usage of technologies:
 * Server side: PHP / CodeIgniter
