@@ -1,0 +1,84 @@
+/* Responsive styles */
+
+/* Large Devices, Wide Screens */
+@media (min-width : 1200px) {
+    .img {
+        max-height: 400px;
+        width: auto;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media (min-width : 992px) {
+    .img {
+        max-height: 400px;
+        width: auto;
+    }
+}
+
+/* Small Devices, Tablets */
+@media (min-width : 768px) and (max-width: 991px) {
+	.icon {
+        max-height: 40px;
+        width: auto;
+    }  
+    
+    .img {
+        max-height: 300px;
+        width: auto;
+    }
+}
+
+/* Devices Potrait */
+@media (max-width : 767px){
+    .icon {
+        max-height: 30px;
+        width: auto;
+    }  
+    
+    .img {
+        max-height: 250px;
+        width: auto;
+    }
+    
+    p, li {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media (max-width : 479px) {
+    .icon {
+        max-height: 40px;
+        width: auto;
+    }  
+    
+    .img {
+        max-height: 250px;
+        width: auto;
+    }
+    
+    p, li {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Custom, iPhone Retina */ 
+@media (min-width : 320px) and (max-width: 478px)  {
+   .icon {
+        max-height: 30px;
+        width: auto;
+    }  
+    
+    p, li {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .img {
+        max-height: 250px;
+        width: auto;
+    }
+}

@@ -1,0 +1,542 @@
+/*==========================================================
+    Font-faces
+==========================================================*/
+
+@font-face {
+    font-family: ComicSans;
+    src: url(http://fitfemme.pl/fonts/ComicSans.ttf);
+}
+
+@font-face {
+    font-family: GreatVibes;
+    src: url(http://fitfemme.pl/fonts/GreatVibes.otf);
+}
+
+/*==========================================================
+    Global styles
+==========================================================*/
+
+* {
+    border-radius: 0px !important;
+    color: white;
+}
+
+html, body {
+    overflow-x: hidden;
+    background: black;
+}
+
+a {
+    text-decoration: none !important;
+    color: white;
+}
+            
+a:link, a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #EA2A9C;
+    cursor: pointer;
+}
+
+p:not(.h2):not(.h3) {
+    font-size: 16px;
+    text-indent: 2em;
+    overflow: hidden;
+    line-height: 35px;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+.row li, li {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 35px;
+}
+
+.company {
+    color: white !important;
+    font-family: GreatVibes;
+    font-size: 30px;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+/*==========================================================
+    Buttons
+==========================================================*/
+
+#arrow {
+    position: fixed;
+    display: none; 
+    right: 1%; 
+    bottom: 3%; 
+    border-radius: 50% !important;
+    border: 2px solid white;
+    background-color: black; 
+    padding: 1%; 
+    z-index: 2;
+}
+
+#arrow:hover {
+    background-color: #EA2A9C;
+}
+
+#arrow > img {
+    max-width: 30px;
+    height: auto;
+}
+
+.btn-default {
+    font-size: 18px;
+	line-height: 24px;
+	padding: 20px 19px;
+    border-style: solid;
+    border-color: #fff; 
+	border-width: 2px;
+	text-transform: uppercase;
+	border-radius: 0px;
+	font-weight: 700;
+	background: transparent;
+	color: #fff;
+	-webkit-transition: all .4s ease-in 0s;
+	-o-transition: all .4s ease-in 0s;
+	transition: all .4s ease-in 0s;
+}
+
+.btn-default.featured {
+	font-size: 18px;
+	line-height: 24px;
+	padding: 20px 19px;
+	border: 2px solid #F1C40F;
+	text-transform: uppercase;
+	border-radius: 0px;
+	font-weight: 700;
+	background: transparent;
+	color: #F1C40F;
+	margin-top: 50px;
+	-webkit-transition: all .4s ease-in 0s;
+	-o-transition: all .4s ease-in 0s;
+	transition: all .4s ease-in 0s;
+}
+
+.btn-default:hover, .checked {
+	background: #fff;
+	color: #EA2A9C;
+	border-color: #fff;
+}
+
+.btn-default.featured:hover {
+	background: #EA2A9C;
+	color: #fff;
+	border-color: #EA2A9C;
+}
+
+.alert-danger {
+    display: none;
+}
+
+.follow-me {
+    margin-top: 20px;
+}
+
+#instaFollow {
+    background-color: #49AFCD;
+    background-image: url("http://mmoneta.pl/uploads/instagram_icon.png");
+    background-position: 7px 6px;
+    background-repeat: no-repeat;
+    background-size: 30px auto;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 12px 10px 40px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+    margin-top: 20px;
+}
+
+#instaFollow:hover {
+    background-position: 7px 0;
+    text-decoration: none;
+    transition: background-position 0.1s linear 0s;
+    background-color: #2F96B4;
+    color: #FFFFFF;
+}
+
+#instaFollow:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    outline: 0 none;
+}
+
+/*==========================================================
+    Top Menu
+==========================================================*/
+
+#top-menu {
+    background-color: rgb(37, 37, 37) !important;
+    color: white !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+#top-menu .navbar-default,  #top-menu .navbar-text, #top-menu .navbar-default , #top-menu .navbar-link {
+    color: white !important;
+}
+
+#top-menu .navbar-link:hover {
+    color: #EA2A9C !important;
+}
+
+/*==========================================================
+    Banner styles
+==========================================================*/
+
+#section-banner {
+    background: url("http://mmoneta.pl/slider/session.jpg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    position: relative;
+    height: 75vh;
+    width: 100vw;
+}
+
+/*==========================================================
+    Main menu
+==========================================================*/
+
+.list-group-item {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0px 2px 2px 2px;
+    transition: all .1s ease-in 0s;
+    cursor: default;
+}
+
+.list-group-item:hover {
+    background: #fff !important;
+	color: #EA2A9C;
+	border-color: #fff;
+    
+}
+
+/*==========================================================
+    Posts
+==========================================================*/
+
+#posts {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    font-family: arial;
+    /*min-height: 100vh;*/
+}
+
+.thumbnail {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 0px !important;
+    background-color: transparent !important;
+    border: none !important;
+    cursor: pointer;
+}
+
+.thumbnail img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.range {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+}
+
+.range:hover {
+    box-shadow: 6px -2px 16px 4px rgba(255,255,255,0.32);
+}
+
+h4 {
+    font-weight: bold;
+}
+
+#subcategories {
+    display: none;
+}
+
+.range:first-child {
+    margin-left: 0;
+}
+
+figure {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+img {
+    height: auto;
+}
+          
+figcaption {
+    padding: 10px;
+    margin: 0;
+    display: block;
+    color: white;
+} 
+
+.object {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    max-height: 60px;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.names {
+    font-family: ComicSans;
+}
+
+.quest {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+    text-align: center;
+}
+
+.comment-group {
+    -webkit-box-shadow: 0px 0px 4px 2px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 4px 2px rgba(255,255,255,1);
+    box-shadow: 0px 0px 4px 2px rgba(255,255,255,1);
+    padding: 10px;
+} 
+
+.answer-group {
+    -webkit-box-shadow: 0px 0px 4px 1px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 4px 1px rgba(255,255,255,1);
+    box-shadow: 0px 0px 4px 1px rgba(255,255,255,1);
+    padding: 10px;
+    margin-top: 5px !important;
+} 
+
+#gallery {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.response {
+	text-align: right;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/*==========================================================
+    Images
+==========================================================*/  
+
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba(255, 255, 255, .8) 
+                url('http://sampsonresume.com/labs/pIkfp.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+.wait {
+    width: 600px;
+    height: 300px;
+    background: url("http://sampsonresume.com/labs/pIkfp.gif") 50% no-repeat;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/*==========================================================
+    Instagram
+==========================================================*/
+
+.instafeed {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+}
+
+.instafeed img {
+    max-height: 320px; 
+    width: auto;
+}
+
+.instafeed img {
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.instafeed:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+	opacity: .5;
+}
+
+/*==========================================================
+    Google+
+==========================================================*/
+.abcRioButtonContents span {
+    color: #EA2A9C !important;
+}   
+
+/*==========================================================
+    Footer
+==========================================================*/
+
+#section-footer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}	
+
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    margin-left: -40px;
+}
+
+.popup .popuptext-top {
+    top: 125%;
+}
+
+.popup .popuptext-bottom {
+    bottom: 125%;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.popup .popuptext-top::after {
+    bottom: 100%;
+}
+
+.popup .popuptext-bottom::after {
+    top: 100%;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.popup .hide {
+    visibility: hidden;
+    -webkit-animation: fadeOut 1s;
+    animation: fadeOut 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/*==========================================================
+    TinyMCE
+==========================================================*/
+			
+.mce-branding-powered-by {
+    display: none;
+}
