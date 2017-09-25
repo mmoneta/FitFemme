@@ -1,4 +1,4 @@
-DEMO: http://fitfemme.pl/blog
+Project E-commerce
 
 Usage of technologies:
 * Server side: PHP / CodeIgniter
