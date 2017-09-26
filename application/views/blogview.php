@@ -92,7 +92,7 @@
             </div>
         </div>
         <div id="arrow">
-            <img src="http://fitfemme.pl/uploads/arrow.png" alt="Arrow" >
+            <img src="<?php echo base_url(); ?>uploads/arrow.png" alt="Arrow" >
         </div>
         <div class="container">
             <div class="col-md-3" id="subcategories"></div>
