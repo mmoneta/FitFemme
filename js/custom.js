@@ -146,10 +146,12 @@ $(document).ready(function () {
         }, function() {
             clearTimeout(delay);
     });
+    
     $("#subcategories").mouseleave(function() {
         $("button").removeClass("checked");
         change();
     });
+    
     $(".range").mousedown(function(e) {
         switch(e.which) {
             case 1:
