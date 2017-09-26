@@ -1,6 +1,4 @@
-/* Responsive styles */
-
-/* Large Devices, Wide Screens */
+* Large Devices, Wide Screens */
 @media (min-width : 1200px) {
     .img {
         max-height: 400px;
@@ -45,6 +43,10 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+    
+    #template {
+        margin: 0px 5px;
+    }
 }
 
 /* Extra Small Devices, Phones */ 
@@ -63,6 +65,10 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+    
+    #template {
+        margin: 0px 5px;
+    }
 }
 
 /* Custom, iPhone Retina */ 
@@ -80,5 +86,9 @@
     .img {
         max-height: 250px;
         width: auto;
+    }
+    
+    #template {
+        margin: 0px 5px;
     }
 }
