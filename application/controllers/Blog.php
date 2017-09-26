@@ -80,6 +80,30 @@
             $this->load->view('contact');
         }
         
+        public function message() {
+            $this->load->library('email');
+            $name = $this->input->post('name');
+            $email = $this->input->post('email');
+            $message = $this->input->post('message');
+            list($userName, $mailDomain) = explode("@", $email);
+            if (checkdnsrr($mailDomain, "MX")) { 
+                $this->email->from($email);
+                $this->email->to('kontakt@fitfemme.pl');
+                $this->email->subject('Blog');
+                $this->email->message($message);
+                if ($this->email->send()) { 
+                   echo("Wiadomo&#347;&#263; wys&#322;ana!");
+                }
+                else {
+                    echo("Wiadomo&#347;&#263; nie zosta&#322;a wys&#322;ana!");
+                }
+            } 
+            else { 
+                echo("Nieprawid&#322;owa domena!");
+            } 
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+        }
+        
         public function cooperation() {
             $this->load->view('cooperation');
         }
@@ -193,7 +217,7 @@
         public function comment() {
             $option = $this->input->post('option');
             $message = $this->input->post('message');
-            $url = $this->agent->referrer();
+            $url = substr($this->agent->referrer(),0,strpos($this->agent->referrer(),"?"));
             $needle = "posts";
             $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
             if (strpos($url, $needle) == false)
