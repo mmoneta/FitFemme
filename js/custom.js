@@ -196,31 +196,8 @@ $(document).ready(function () {
             });
         }
     })
+    
     $("#arrow").click(function() {
         $("html, body").animate({ scrollTop: 0 }, "slow");
     })
-    
-    $("#contactForm").submit(function(e) {
-        $.ajax({
-            type: "POST",
-            url: 'http://fitfemme.pl/kontakt.php',
-            data: { name: $("#name").val(), email: $("#email").val(), message: $("#message").val() },
-            success: function(data) {
-               switch(data) {
-                    case "Wiadomość wysłana!":
-                       $("input, textarea").val("");
-                       $(".alert-danger").css("display", "none");
-                        alert(data);
-                       break;
-                    case "Nieprawidłowa domena!":
-                        $(".alert-danger").css("display", "block");
-                        break;
-               }
-            },
-            error: function (request, status, error) {
-                alert(request.responseText);
-            }
-        });
-        e.preventDefault();
-    });
 })
