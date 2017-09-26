@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-xs-12">
-                    <form name="sentMessage" id="contactForm">
+                    <form name="sentMessage" id="contactForm" method='post' action="<?php echo base_url(); ?>blog/message">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="name">Imię</label>
