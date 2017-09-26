@@ -67,10 +67,10 @@
                         <li><a href="<?php echo base_url(); ?>blog" class="company">FitFemme</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="<?php echo base_url(); ?>blog">Strona główna</a></li>
+                        <li class="active"><a href="<?php echo base_url(); ?>blog">Strona gÅ‚Ã³wna</a></li>
                         <li><a href="<?php echo base_url(); ?>blog/metamorphoses" class="navbar-link">Metamorfozy</a></li>
                         <li><a href="<?php echo base_url(); ?>blog/about" class="navbar-link">O mnie</a></li>
-                        <li><a href="<?php echo base_url(); ?>blog/cooperation" class="navbar-link">Współpraca</a></li>
+                        <li><a href="<?php echo base_url(); ?>blog/cooperation" class="navbar-link">WspÃ³Å‚praca</a></li>
                         <li><a href="<?php echo base_url(); ?>blog/contact" class="navbar-link">Kontakt</a></li>
                     </ul>
                 </div>
@@ -92,7 +92,7 @@
             </div>
         </div>
         <div id="arrow">
-            <img src="http://www.mmoneta.pl/portfolio/images/icons/arrow.png" alt="Arrow" >
+            <img src="http://fitfemme.pl/uploads/arrow.png" alt="Arrow" >
         </div>
         <div class="container">
             <div class="col-md-3" id="subcategories"></div>
