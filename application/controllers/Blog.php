@@ -92,14 +92,14 @@
                 $this->email->subject('Blog');
                 $this->email->message($message);
                 if ($this->email->send()) { 
-                   echo("Wiadomo&#347;&#263; wys&#322;ana!");
+                   echo("Wiadomość wysłana!");
                 }
                 else {
-                    echo("Wiadomo&#347;&#263; nie zosta&#322;a wys&#322;ana!");
+                    echo("Wiadomość nie została wysłana!");
                 }
             } 
             else { 
-                echo("Nieprawid&#322;owa domena!");
+                echo("Nieprawidłowa domena!");
             } 
             header('Location: '.$_SERVER['HTTP_REFERER']);
         }
