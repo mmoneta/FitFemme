@@ -92,14 +92,14 @@
                 $this->email->subject('Blog');
                 $this->email->message($message);
                 if ($this->email->send()) { 
-                   echo("Wiadomość wysłana!");
+                   echo("Wiadomo&#347;&#263; wys&#322;ana!");
                 }
                 else {
-                    echo("Wiadomość nie została wysłana!");
+                    echo("Wiadomo&#347;&#263; nie zosta&#322;a wys&#322;ana!");
                 }
             } 
             else { 
-                echo("Nieprawidłowa domena!");
+                echo("Nieprawid&#322;owa domena!");
             } 
             header('Location: '.$_SERVER['HTTP_REFERER']);
         }
@@ -218,6 +218,8 @@
             $option = $this->input->post('option');
             $message = $this->input->post('message');
             $url = substr($this->agent->referrer(),0,strpos($this->agent->referrer(),"?"));
+            if ($url == null)
+                $url = $this->agent->referrer();
             $needle = "posts";
             $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
             if (strpos($url, $needle) == false)
