@@ -19,6 +19,7 @@
     <script src="<?php echo base_url(); ?>js/custom.js"></script>
     <!-- Emoticons -->
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       .btn {
         width: 100%;
@@ -31,7 +32,48 @@
       #main-menu, .group {
         padding-left: 0 !important;
         padding-right: 0 !important;
-      }  
+      }
+      
+      form.search-form {
+        margin-top: 10px;
+      }
+      
+      form.search-form input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid white;
+        float: left;
+        width: 80%;
+        background: transparent;
+        color: white !important;
+      }
+      
+      form.search-form input[type=text] {
+        color: white !important;
+      }
+
+      form.search-form button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #EA2A9C;
+        color: white;
+        font-size: 17px;
+        border: 1px solid #EA2A9C;
+        border-left: none;
+        cursor: pointer;
+      }
+      
+      form.search-form button:hover {
+        background: #bb217c;
+        border: 1px solid #bb217c;
+      }
+      
+      form.search-form::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
     </style>
     <script>
       window.addEventListener("load", function() {
@@ -47,6 +89,19 @@
            self.classList.remove("show"); 
          }, 3000);
       }
+      
+      /*$("#seach-form").submit(function(e) {
+        var url = "http://fitfemme.pl/blog/search";
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: $("#search-form").serialize(), // serializes the form's elements.
+          success: function(data) {
+             alert(data);
+          }
+        });
+        e.preventDefault();
+      });*/
     </script>
   </head>
   <body>
@@ -72,33 +127,41 @@
             <li><a href="<?php echo base_url(); ?>blog/about" class="navbar-link">O mnie</a></li>
             <li><a href="<?php echo base_url(); ?>blog/cooperation" class="navbar-link">Współpraca</a></li>
             <li><a href="<?php echo base_url(); ?>blog/contact" class="navbar-link">Kontakt</a></li>
-          </ul>
         </div>
       </div>
     </nav>
     <div id="section-banner"></div>
     <div class="btn-group btn-group-justified container" id="main-menu" aria-label="...">
-      <div class="col-md-3 col-xs-6 group">
+      <div class="col-md-2 col-xs-6 group">
         <button type="button" class="btn btn-group btn-default">DIETA</button>
       </div>
-      <div class="col-md-3 col-xs-6 group">
+      <div class="col-md-2 col-xs-6 group">
         <button type="button" class="btn btn-group btn-default">TRENING</button>
       </div>
-      <div class="col-md-3 col-xs-6 group" >
+      <div class="col-md-4 col-xs-12 group" >
         <button type="button" class="btn btn-group btn-default">CIEKAWOSTKI</button>
       </div>
-      <div class="col-md-3 col-xs-6 group">
+      <div class="col-md-2 col-xs-6 group">
         <button type="button" class="btn btn-group btn-default">MOTYWACJA</button>
+      </div>
+      <div class="col-md-2 col-xs-6 group">
+        <button type="button" class="btn btn-group btn-default">ORGANIZACJA</button>
       </div>
     </div>
     <div id="arrow">
-      <img src="<?php echo base_url(); ?>uploads/arrow.png" alt="Arrow" >
+      <img src="http://fitfemme.pl/uploads/arrow.png" alt="Arrow" >
+    </div>
+    <div class="container">
+      <form id="search-form" class="search-form" method="post" action="<?php echo site_url('blog/searcher');?>">
+        <input type="text" placeholder="Search..." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
     </div>
     <div class="container">
       <div class="col-md-3" id="subcategories"></div>
       <div id="posts" class="col-md-12 col-xs-12">
         <?php
-          $controller->create_sections($list);
+          $controller->create_sections($list, $view);
         ?>
       </div>
     </div>
