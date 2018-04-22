@@ -89,19 +89,6 @@
            self.classList.remove("show"); 
          }, 3000);
       }
-      
-      /*$("#seach-form").submit(function(e) {
-        var url = "http://fitfemme.pl/blog/search";
-        $.ajax({
-          type: "POST",
-          url: url,
-          data: $("#search-form").serialize(), // serializes the form's elements.
-          success: function(data) {
-             alert(data);
-          }
-        });
-        e.preventDefault();
-      });*/
     </script>
   </head>
   <body>
