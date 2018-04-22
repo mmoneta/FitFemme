@@ -1,208 +1,208 @@
 $(document).ready(function () {
-  // Variables
-  $body = $("body");
-  var delay, category, loaded, subcategory;
-  
-  // Download posts based on category
-  function download(title) {
-    $.ajax({
-      type: "POST",
-      url: "http://fitfemme.pl/blog/category",
-      data: {
-  			category : title
-  		},
-  		success: function(json) {
-        $.get("/mockjax");
-  			var posts = JSON.parse(json);
-        if (posts.length > 0) {
-  			  $("#posts").empty();
-  			  for(var i = 0; i < posts.length; i++) {
-            var dateParts = posts[i].Date.split("-");
-            var date = dateParts[2] + "." + dateParts[1] + "." + dateParts[0];
-            var post = $("<div>");
-            $(post).html("<figure><div class='thumbnail'><img class='img' src='//fitfemme.pl/" + posts[i].Cover + "' /></div><figcaption class='figcaption'><h4 class='text-center names'>" + posts[i].Title + "</h4><h6 class='text-center'>Data dodania: " +  date + "</h6></figcaption></figure>");
-            $(post).addClass("col-md-6 col-xs-12 range center-block")
-            $(post).attr("data-link", "http://fitfemme.pl/blog/posts/" + date)
-            $(post).mousedown(function(e) {
-              switch(e.which) {
-                case 1:
-                  // Left
-                  window.open($(this).attr("data-link"), "_self");
-                  break;
-                case 2:
-                  // Middle
-                  window.open($(this).attr("data-link"), "_blank");
-                  break;
-                case 3:
-                  // Right
-                  break;
-              }
-              return true;  // to allow the browser to know that we handled it.
-            });
-            $("#posts").append(post);
-  			  }
-          $("#posts").css("visibility", "visible");
-        }
-  		},
-  		error: function(jqXHR, errorText, errorThrown) {
-  			console.log(errorText);
-  		}
-  	});
-  	loaded = title;
-  }
-  
-  function change() {
-    $("#subcategories").css("display", "none");
-    $("#posts").removeAttr("class");
-    $("#posts").attr("class", "col-md-12");
-    $(".search-form").css("display", "block");
-  }
-  
-  function init(category) {
-    if (category != "MOTYWACJA" && category != "ORGANIZACJA") {
-      $("#subcategories").css("display", "block");
-      $("#posts").removeAttr("class");
-      $("#posts").attr("class", "col-md-9");
-      $(".search-form").css("display", "none");
-    }
-    else {
-      change();
-    }
-    switch(category) {
-      case "DIETA":
-        $("#subcategories").html("<ul class='list-group'><li class='list-group-item'>Åšniadania / kolacje</li><li class='list-group-item'>Obiady</li><li class='list-group-item'>Desery</li><li class='list-group-item'>Wszystkie</li></ul>");
-        break;
-      case "TRENING":
-        $("#subcategories").html("<ul class='list-group'><li class='list-group-item'>Jak Ä‡wiczyÄ‡?</li><li class='list-group-item'>Rozgrzewka</li><li class='list-group-item'>CaÅ‚e ciaÅ‚o</li><li class='list-group-item'>Ramiona</li><li class='list-group-item'>Plecy</li><li class='list-group-item'>Brzuch</li><li class='list-group-item'>PoÅ›ladki</li><li class='list-group-item'>InterwaÅ‚y</li><li class='list-group-item'>RozciÄ…ganie</li><li class='list-group-item'>Wyzwania</li><li class='list-group-item'>Wszystkie</li></ul>");
-        break;
-      case "CIEKAWOSTKI":
-        $("#subcategories").html("<ul class='list-group'><li class='list-group-item'>Å»ywieniowe</li><li class='list-group-item'>Treningowe</li><li class='list-group-item'>O mnie</li><li class='list-group-item'>OgÃ³lne</li><li class='list-group-item'>Wszystkie</li></ul>");
-        break;
-      case "MOTYWACJA":
-        download("MOTYWACJA");
-        break;
-      case "ORGANIZACJA":
-        download("ORGANIZACJA");
-        break;
-    }
-  }
-  
-  var isMobile = {
-    Android: function() {
-      return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function() {
-      return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function() {
-      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Opera: function() {
-      return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function() {
-      return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
-    },
-    any: function() {
-      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
-  }
-  
-  var getScroll = function() {
-    if (window.pageYOffset!= undefined) {
-      return pageYOffset;
-    }
-    else {
-      var sx, sy, d = document, r = d.documentElement, b = d.body;
-      sx = r.scrollLeft || b.scrollLeft || 0;
-      sy = r.scrollTop || b.scrollTop || 0;
-      return sy;
-    }
-  }
-  
-  // Events
-  $(document).on({
-    ajaxStart: function() { $body.addClass("loading");  },
-    ajaxStop: function() { $body.removeClass("loading"); }  
-  });
-  
-  $(".btn").hover(function() {
-    var that = this;
-    delay = setTimeout(function() {
-      if (loaded != $(that).text()) {
-        category = $(that).text();
-        $(".btn").removeClass("checked");
-        $(that).addClass("checked");
-        init(category);
-      }
-      $("#subcategories li").click(function() {
-        if (subcategory != $(this).text()) {
-          subcategory = $(this).text();
-          if (subcategory == "Wszystkie") {
-            window.location.reload(); 
-          }
-          else {
-            download(subcategory);
-            change();
-          }
-        }
+ // Variables
+ $body = $("body");
+ var delay, category, loaded, subcategory;
+ 
+ // Download posts based on category
+ function download(title) {
+  $.ajax({
+   type: "POST",
+   url: "http://fitfemme.pl/blog/category",
+   data: {
+ 			category : title
+ 		},
+ 		success: function(json) {
+    $.get("/mockjax");
+ 			var posts = JSON.parse(json);
+    if (posts.length > 0) {
+ 			 $("#posts").empty();
+ 			 for(var i = 0; i < posts.length; i++) {
+      var dateParts = posts[i].Date.split("-");
+      var date = dateParts[2] + "." + dateParts[1] + "." + dateParts[0];
+      var post = $("<div>");
+      $(post).html("<figure><div class='thumbnail'><img class='img' src='//fitfemme.pl/" + posts[i].Cover + "' /></div><figcaption class='figcaption'><h4 class='text-center names'>" + posts[i].Title + "</h4><h6 class='text-center'>Data dodania: " + date + "</h6></figcaption></figure>");
+      $(post).addClass("col-md-6 col-xs-12 range center-block")
+      $(post).attr("data-link", "http://fitfemme.pl/blog/posts/" + date)
+      $(post).mousedown(function(e) {
+       switch(e.which) {
+        case 1:
+         // Left
+         window.open($(this).attr("data-link"), "_self");
+         break;
+        case 2:
+         // Middle
+         window.open($(this).attr("data-link"), "_blank");
+         break;
+        case 3:
+         // Right
+         break;
+       }
+       return true; // to allow the browser to know that we handled it.
       });
-    }, 500);
-    }, function() {
-      clearTimeout(delay);
-  });
-  $("#subcategories").mouseleave(function() {
-    $("button").removeClass("checked");
-    change();
-  });
-  $(".range").mousedown(function(e) {
-    switch(e.which) {
-      case 1:
-        // Left
-        window.open($(this).attr("data-link"), "_self");
-        break;
-      case 2:
-        // Middle
-        window.open($(this).attr("data-link"), "_blank");
-        break;
-      case 3:
-        // Right
-        break;
+      $("#posts").append(post);
+ 			 }
+     $("#posts").css("visibility", "visible");
     }
-    return true;  // to allow the browser to know that we handled it.
-  });
-        
-  if (isMobile.any()) {
-    
+ 		},
+ 		error: function(jqXHR, errorText, errorThrown) {
+ 			console.log(errorText);
+ 		}
+ 	});
+ 	loaded = title;
+ }
+ 
+ function change() {
+  $("#subcategories").css("display", "none");
+  $("#posts").removeAttr("class");
+  $("#posts").attr("class", "col-md-12");
+  $(".search-form").css("display", "block");
+ }
+ 
+ function init(category) {
+  if (category != "MOTYWACJA" && category != "ORGANIZACJA") {
+   $("#subcategories").css("display", "block");
+   $("#posts").removeAttr("class");
+   $("#posts").attr("class", "col-md-9");
+   $(".search-form").css("display", "none");
   }
   else {
-    // Go to up
-    if (getScroll() < document.getElementById("section-banner").clientHeight) {
-      document.getElementById("arrow").style.display = "none" 
-    }
-    window.addEventListener("scroll", function() {
-      if (getScroll() < document.getElementById("section-banner").clientHeight) {
-        document.getElementById("arrow").style.display = "none"
-      }
-      else {
-        document.getElementById("arrow").style.display = "block"
-      }
-    })
+   change();
   }
-
-  window.addEventListener("scroll", function() {
-    var position = $('#subcategories').position();
-    if (getScroll() > parseInt(position.top) + parseInt($('#subcategories').height())) {
+  switch(category) {
+   case "DIETA":
+    $("#subcategories").html("<ul class='list-group'><li class='list-group-item'>Åšniadania / kolacje</li><li class='list-group-item'>Obiady</li><li class='list-group-item'>Desery</li><li class='list-group-item'>Wszystkie</li></ul>");
+    break;
+   case "TRENING":
+    $("#subcategories").html("<ul class='list-group'><li class='list-group-item'>Jak Ä‡wiczyÄ‡?</li><li class='list-group-item'>Rozgrzewka</li><li class='list-group-item'>CaÅ‚e ciaÅ‚o</li><li class='list-group-item'>Ramiona</li><li class='list-group-item'>Plecy</li><li class='list-group-item'>Brzuch</li><li class='list-group-item'>PoÅ›ladki</li><li class='list-group-item'>InterwaÅ‚y</li><li class='list-group-item'>RozciÄ…ganie</li><li class='list-group-item'>Wyzwania</li><li class='list-group-item'>Wszystkie</li></ul>");
+    break;
+   case "CIEKAWOSTKI":
+    $("#subcategories").html("<ul class='list-group'><li class='list-group-item'>Å»ywieniowe</li><li class='list-group-item'>Treningowe</li><li class='list-group-item'>O mnie</li><li class='list-group-item'>OgÃ³lne</li><li class='list-group-item'>Wszystkie</li></ul>");
+    break;
+   case "MOTYWACJA":
+    download("MOTYWACJA");
+    break;
+   case "ORGANIZACJA":
+    download("ORGANIZACJA");
+    break;
+  }
+ }
+ 
+ var isMobile = {
+  Android: function() {
+   return navigator.userAgent.match(/Android/i);
+  },
+  BlackBerry: function() {
+   return navigator.userAgent.match(/BlackBerry/i);
+  },
+  iOS: function() {
+   return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  },
+  Opera: function() {
+   return navigator.userAgent.match(/Opera Mini/i);
+  },
+  Windows: function() {
+   return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+  },
+  any: function() {
+   return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+  }
+ }
+ 
+ var getScroll = function() {
+  if (window.pageYOffset!= undefined) {
+   return pageYOffset;
+  }
+  else {
+   var sx, sy, d = document, r = d.documentElement, b = d.body;
+   sx = r.scrollLeft || b.scrollLeft || 0;
+   sy = r.scrollTop || b.scrollTop || 0;
+   return sy;
+  }
+ }
+ 
+ // Events
+ $(document).on({
+  ajaxStart: function() { $body.addClass("loading"); },
+  ajaxStop: function() { $body.removeClass("loading"); } 
+ });
+ 
+ $(".btn").hover(function() {
+  var that = this;
+  delay = setTimeout(function() {
+   if (loaded != $(that).text()) {
+    category = $(that).text();
+    $(".btn").removeClass("checked");
+    $(that).addClass("checked");
+    init(category);
+   }
+   $("#subcategories li").click(function() {
+    if (subcategory != $(this).text()) {
+     subcategory = $(this).text();
+     if (subcategory == "Wszystkie") {
+      window.location.reload(); 
+     }
+     else {
+      download(subcategory);
       change();
-      $("button").removeClass("checked");
-      $("button").each(function() {
-        if ($(this).text() == loaded)
-          $(this).addClass("checked");
-      });
+     }
     }
-  })
+   });
+  }, 500);
+  }, function() {
+   clearTimeout(delay);
+ });
+ $("#subcategories").mouseleave(function() {
+  $("button").removeClass("checked");
+  change();
+ });
+ $(".range").mousedown(function(e) {
+  switch(e.which) {
+   case 1:
+    // Left
+    window.open($(this).attr("data-link"), "_self");
+    break;
+   case 2:
+    // Middle
+    window.open($(this).attr("data-link"), "_blank");
+    break;
+   case 3:
+    // Right
+    break;
+  }
+  return true; // to allow the browser to know that we handled it.
+ });
+    
+ if (isMobile.any()) {
   
-  $("#arrow").click(function() {
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+ }
+ else {
+  // Go to up
+  if (getScroll() < document.getElementById("section-banner").clientHeight) {
+   document.getElementById("arrow").style.display = "none" 
+  }
+  window.addEventListener("scroll", function() {
+   if (getScroll() < document.getElementById("section-banner").clientHeight) {
+    document.getElementById("arrow").style.display = "none"
+   }
+   else {
+    document.getElementById("arrow").style.display = "block"
+   }
   })
+ }
+
+ window.addEventListener("scroll", function() {
+  var position = $('#subcategories').position();
+  if (getScroll() > parseInt(position.top) + parseInt($('#subcategories').height())) {
+   change();
+   $("button").removeClass("checked");
+   $("button").each(function() {
+    if ($(this).text() == loaded)
+     $(this).addClass("checked");
+   });
+  }
+ })
+ 
+ $("#arrow").click(function() {
+  $("html, body").animate({ scrollTop: 0 }, "slow");
+ })
 })
