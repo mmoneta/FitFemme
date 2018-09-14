@@ -130,10 +130,10 @@
         $this->email->subject('Blog');
         $this->email->message($message);
         if ($this->email->send()) { 
-           echo("WiadomoÅ›Ä‡; wysÅ‚ana!");
+           echo("Wiadomość wysłana!");
         }
         else {
-          echo("WiadomoÅ›Ä‡ nie zostaÅ‚a wysÅ‚ana!");
+          echo("Wiadomość nie została wysłana!");
         }
       } 
       else { 
