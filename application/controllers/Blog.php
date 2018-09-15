@@ -137,7 +137,7 @@
         }
       } 
       else { 
-        echo("NieprawidÅ‚owa domena!");
+        echo("Nieprawidłowa domena!");
       } 
       header('Location: '.$_SERVER['HTTP_REFERER']);
     }
